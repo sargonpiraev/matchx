@@ -5,7 +5,7 @@ A simple yet robust order matching engine implementation for financial markets, 
 ## Installation
 
 ```bash
-npm install matchx
+npm install @sargonpiraev/matchx
 ```
 
 ## Example Usage
@@ -16,7 +16,7 @@ import {
   MatchingAlgorithm, 
   OrderSide, 
   OrderType 
-} from 'matchx'
+} from '@sargonpiraev/matchx'
 
 
 // Create engines with different algorithms

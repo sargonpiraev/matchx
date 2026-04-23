@@ -1,7 +1,10 @@
 {
-  "name": "matchx",
+  "name": "@sargonpiraev/matchx",
   "version": "0.0.1",
   "description": "matchx — in-memory order matching engine for financial markets with price-time and pro-rata algorithms",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "matching-engine",
     "order-book",
