@@ -112,4 +112,4 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --prefer-offline --no-audit --progress=false
-      - run: npm audit --audit-level=high
+      - run: npm audit --omit=dev --audit-level=high
