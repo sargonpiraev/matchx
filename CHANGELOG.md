@@ -1,1 +1,1 @@
-https://gitlab.com/sargonpiraev/node-matching-engine/-/releases
+https://github.com/sargonpiraev/matchx/releases

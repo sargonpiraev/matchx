@@ -1,11 +1,11 @@
-# Matching Engine
+# matchx
 
 A simple yet robust order matching engine implementation for financial markets, supporting limit/market orders with price-time and pro-rata matching algorithms.
 
 ## Installation
 
 ```bash
-npm install node-matching-engine
+npm install matchx
 ```
 
 ## Example Usage
@@ -16,7 +16,7 @@ import {
   MatchingAlgorithm, 
   OrderSide, 
   OrderType 
-} from 'node-matching-engine'
+} from 'matchx'
 
 
 // Create engines with different algorithms
