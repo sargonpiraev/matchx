@@ -15,6 +15,7 @@
     "dev": "turbo run dev",
     "lint": "npm run test:codestyles",
     "check-types": "npm run test:type",
+    "test": "npm run test:unit",
     "test:unit": "turbo run test:unit",
     "test:type": "turbo run test:type",
     "test:codestyles": "turbo run test:codestyles",
