@@ -6,7 +6,7 @@
     "dev": "next dev --port 3001",
     "build": "fumadocs-mdx && next build",
     "start": "next start --port 3001",
-    "test:type": "fumadocs-mdx && tsc --noEmit"
+    "test:type": "fumadocs-mdx && next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@sargonpiraev/matchx": "*",

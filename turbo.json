@@ -9,7 +9,9 @@
       "dependsOn": ["^build"],
       "outputs": ["coverage/**", "junit.xml"]
     },
-    "test:type": {},
+    "test:type": {
+      "dependsOn": ["^build"]
+    },
     "test:codestyles": {},
     "dev": {
       "dependsOn": ["^build"],
