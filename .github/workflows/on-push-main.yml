@@ -1,0 +1,10 @@
+name: on-push-main
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: sargonpiraev/shared/.github/workflows/on-push-main.yml@main
+    secrets: inherit

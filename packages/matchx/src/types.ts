@@ -1,8 +1,14 @@
+/**
+ * Side of an order in the book.
+ */
 export enum OrderSide {
   ASK, // sell
   BID, // buy
 }
 
+/**
+ * Supported order types.
+ */
 export enum OrderType {
   LIMIT,
   MARKET,
@@ -29,6 +35,9 @@ export type LimitOrder = BaseOrder & {
 
 export type Order = LimitOrder | MarketOrder
 
+/**
+ * Executed trade between a bid and an ask.
+ */
 export type Trade = {
   askOrderId: string
   bidOrderId: string
@@ -36,6 +45,9 @@ export type Trade = {
   quantity: number
 }
 
+/**
+ * Matching priority algorithm for the order book.
+ */
 export enum MatchingAlgorithm {
   PRICE_TIME,
   PRO_RATA,

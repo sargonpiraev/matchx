@@ -12,10 +12,11 @@ import { plainToInstance } from 'class-transformer'
 import { OrderDto } from './order.dto'
 import { OrderValidationError, TradingDisabledError } from './errors'
 
-// one trading instrument
-// no performance optimisations
-// only limit and market orders
-// trade gets bid price
+/**
+ * In-memory order book matching engine for a single instrument.
+ *
+ * Supports limit and market orders with price-time or pro-rata matching.
+ */
 export class MatchingEngine {
   private orders: LimitOrder[] = []
   private isTradingActive = true
@@ -30,14 +31,36 @@ export class MatchingEngine {
       algorithm === MatchingAlgorithm.PRICE_TIME ? this.sortAsksByPriceTime : this.sortAsksByProRata
   }
 
+  /**
+   * Disable matching. Subsequent {@link match} calls throw {@link TradingDisabledError}.
+   */
   public stopTrading() {
     this.isTradingActive = false
   }
 
+  /** Re-enable matching after {@link stopTrading}. */
   public startTrading() {
     this.isTradingActive = true
   }
 
+  /**
+   * Match an order against the book.
+   *
+   * Limit orders with remaining quantity are added to the book.
+   * Market orders never rest on the book.
+   *
+   * @example
+   * ```ts
+   * const trades = engine.match({
+   *   id: '00000000-0000-4000-8000-000000000001',
+   *   side: OrderSide.BID,
+   *   quantity: 5,
+   *   time: Date.now(),
+   *   type: OrderType.LIMIT,
+   *   price: 100,
+   * })
+   * ```
+   */
   public match(order: Order): Trade[] {
     if (!this.isTradingActive) throw new TradingDisabledError()
     this.validateOrder(order)
@@ -47,10 +70,12 @@ export class MatchingEngine {
     return trades
   }
 
+  /** Resting bid orders, sorted by the active matching algorithm. */
   public get bids() {
     return this.orders.filter((order) => order.side === OrderSide.BID).sort(this.sortBids)
   }
 
+  /** Resting ask orders, sorted by the active matching algorithm. */
   public get asks() {
     return this.orders.filter((order) => order.side === OrderSide.ASK).sort(this.sortAsks)
   }

@@ -1,0 +1,53 @@
+---
+title: Getting started
+description: Install matchx and run your first order match
+---
+
+## Installation
+
+```bash
+npm install @sargonpiraev/matchx
+```
+
+## Basic usage
+
+```typescript
+import {
+  MatchingEngine,
+  MatchingAlgorithm,
+  OrderSide,
+  OrderType,
+} from '@sargonpiraev/matchx'
+
+const engine = new MatchingEngine(MatchingAlgorithm.PRICE_TIME)
+
+engine.match({
+  id: '00000000-0000-4000-8000-000000000010',
+  side: OrderSide.ASK,
+  quantity: 10,
+  time: Date.now(),
+  type: OrderType.LIMIT,
+  price: 100,
+})
+
+const trades = engine.match({
+  id: '00000000-0000-4000-8000-000000000011',
+  side: OrderSide.BID,
+  quantity: 4,
+  time: Date.now() + 1,
+  type: OrderType.LIMIT,
+  price: 100,
+})
+
+console.log(trades)
+// [{ bidOrderId: '...', askOrderId: '...', price: 100, quantity: 4 }]
+```
+
+## Order types
+
+- **Limit** — rests on the book if not fully matched
+- **Market** — matches immediately, never enters the book
+
+## Order IDs
+
+Every order `id` must be a UUID v4 string. Validation runs before matching.

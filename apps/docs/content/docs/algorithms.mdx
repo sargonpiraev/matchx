@@ -1,0 +1,37 @@
+---
+title: Algorithms
+description: Price-Time and Pro-Rata matching priorities
+---
+
+## Price-Time (default)
+
+Standard exchange priority: best price first, then earliest order.
+
+- **Bids:** descending price → ascending time
+- **Asks:** ascending price → ascending time
+
+```typescript
+const engine = new MatchingEngine(MatchingAlgorithm.PRICE_TIME)
+```
+
+## Pro-Rata
+
+At the same price level, larger resting orders match first.
+
+- **Bids:** descending price → descending quantity → ascending time
+- **Asks:** ascending price → descending quantity → ascending time
+
+```typescript
+const engine = new MatchingEngine(MatchingAlgorithm.PRO_RATA)
+```
+
+## Trade price
+
+The passive (resting) order sets the trade price:
+
+- Incoming **bid** matches ask → trade at **ask** price
+- Incoming **ask** matches bid → trade at **bid** price
+
+## Market orders
+
+Market orders never rest on the book. They match recursively against the best opposite side until quantity is zero or the book is empty.

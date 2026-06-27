@@ -1,0 +1,54 @@
+{
+  "name": "@sargonpiraev/matchx",
+  "version": "0.0.1",
+  "description": "matchx — in-memory order matching engine for financial markets with price-time and pro-rata algorithms",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "matching-engine",
+    "order-book",
+    "trading",
+    "exchange",
+    "clob",
+    "price-time",
+    "pro-rata",
+    "fintech"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sargonpiraev/matchx.git",
+    "directory": "packages/matchx"
+  },
+  "bugs": {
+    "url": "https://github.com/sargonpiraev/matchx/issues"
+  },
+  "homepage": "https://github.com/sargonpiraev/matchx#readme",
+  "author": "Sargon Piraev",
+  "license": "ISC",
+  "scripts": {
+    "test:unit": "jest",
+    "test:type": "tsc --noEmit",
+    "test:codestyles": "prettier src --check",
+    "test:codestyles:fix": "prettier src --write",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.11",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.3.0",
+    "typescript": "^5.8.2"
+  }
+}
