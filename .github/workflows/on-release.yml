@@ -1,0 +1,15 @@
+name: on-release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    uses: sargonpiraev/ci/.github/workflows/on-release.yml@main
+    secrets: inherit
