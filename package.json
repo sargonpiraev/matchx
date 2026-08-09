@@ -27,7 +27,9 @@
     "test:type": "turbo run test:type",
     "test:codestyles": "turbo run test:codestyles",
     "prepare": "lefthook install",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "test:lint": "npm run lint",
+    "test:types": "npm run test:type"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
@@ -38,5 +40,6 @@
     "semantic-release": "^25.0.8",
     "turbo": "^2.9.18",
     "typescript": "^5.8.2"
-  }
+  },
+  "$schema": "../schema/project__package.json"
 }
