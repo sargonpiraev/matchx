@@ -29,7 +29,13 @@
     "prepare": "lefthook install",
     "commitlint": "commitlint --edit",
     "test:lint": "npm run lint",
-    "test:types": "npm run test:type"
+    "test:check-types": "npm run test:type",
+    "test:functional": "npm run test:functional -w @matchx/docapp",
+    "test:seo": "npm run test:seo -w @matchx/docapp",
+    "test:analytics": "npm run test:analytics -w @matchx/docapp",
+    "test:spec": "npm run test:spec -w @matchx/docapp",
+    "test:visual": "npm run test:visual -w @matchx/docapp",
+    "test:format": "npm run test:codestyles"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",

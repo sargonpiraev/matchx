@@ -3,7 +3,7 @@
   "$schema": "../schema/project__project.json",
   "projectType": "library",
   "tags": [
-    "product",
+    "project",
     "type:lib",
     "stack:ts",
     "status:active"
@@ -57,9 +57,58 @@
         "cwd": "matchx"
       }
     },
-    "test:types": {
+    "test:check-types": {
       "cache": false,
-      "command": "npm run test:types",
+      "command": "npm run test:check-types",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:functional": {
+      "cache": false,
+      "command": "npm run test:functional",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:seo": {
+      "cache": false,
+      "command": "npm run test:seo",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:analytics": {
+      "cache": false,
+      "command": "npm run test:analytics",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:spec": {
+      "cache": false,
+      "command": "npm run test:spec",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:visual": {
+      "cache": false,
+      "command": "npm run test:visual",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:format": {
+      "cache": false,
+      "command": "npm run test:format",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "git:status": {
+      "cache": false,
+      "command": "git status -sb",
       "options": {
         "cwd": "matchx"
       }

@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/app__playwright-webapp.json",
+  "app": "docapp",
+  "projects": [
+    "functional",
+    "functional-mobile",
+    "seo",
+    "analytics",
+    "visual",
+    "visual-mobile"
+  ],
+  "coverage": {
+    "collector": "nextcov",
+    "reportDir": "coverage",
+    "thresholds": false
+  }
+}

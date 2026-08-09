@@ -1,12 +1,18 @@
 {
-  "name": "@matchx/docs",
+  "name": "@matchx/docapp",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "fumadocs-mdx && next build",
     "start": "next start --port 3001",
-    "test:type": "fumadocs-mdx && next typegen && tsc --noEmit"
+    "test:type": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "test:functional": "playwright test --project=functional --project=functional-mobile",
+    "test:seo": "playwright test --project=seo",
+    "test:analytics": "playwright test --project=analytics",
+    "test:visual": "playwright test --project=visual --project=visual-mobile",
+    "test:spec": "playwright test --project=functional --project=functional-mobile --project=seo --project=analytics",
+    "test:spec:cov": "E2E_COVERAGE=true npm run test:spec"
   },
   "dependencies": {
     "@sargonpiraev/matchx": "*",
@@ -19,11 +25,14 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@sargonpiraev/seokit": "^0.9.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.13.11",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
+    "nextcov": "^1.5.1",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.2"
   }

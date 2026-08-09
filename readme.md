@@ -7,7 +7,7 @@ Turborepo monorepo for **matchx** — an in-memory order matching engine for fin
 | Path | npm | Description |
 |------|-----|-------------|
 | [`packages/matchx`](packages/matchx) | [`@sargonpiraev/matchx`](https://www.npmjs.com/package/@sargonpiraev/matchx) | Core matching engine library |
-| [`apps/docs`](apps/docs) | — | Fumadocs documentation site (MDX + auto API from source) |
+| [`apps/docapp`](apps/docapp) | — | Fumadocs documentation site (MDX + auto API from source) |
 
 ## Quick start
 
