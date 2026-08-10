@@ -99,6 +99,13 @@
         "cwd": "matchx"
       }
     },
+    "test:cwv": {
+      "cache": false,
+      "command": "npm run test:cwv",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
     "test:format": {
       "cache": false,
       "command": "npm run test:format",

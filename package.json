@@ -35,6 +35,7 @@
     "test:analytics": "npm run test:analytics -w @matchx/docapp",
     "test:spec": "npm run test:spec -w @matchx/docapp",
     "test:visual": "npm run test:visual -w @matchx/docapp",
+    "test:cwv": "npm run test:cwv -w @matchx/docapp",
     "test:format": "npm run test:codestyles"
   },
   "devDependencies": {

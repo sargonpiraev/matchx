@@ -16,6 +16,7 @@ const projectNames = [
   "analytics",
   "visual",
   "visual-mobile",
+  "cwv",
 ] as const;
 
 export const nextcov: NextcovConfig = {
@@ -36,6 +37,7 @@ const projectDevices: Record<(typeof projectNames)[number], (typeof devices)[str
   analytics: devices["Desktop Chrome"],
   visual: devices["Desktop Chrome"],
   "visual-mobile": devices["Pixel 5"],
+  cwv: devices["Desktop Chrome"],
 };
 
 const testMatchByProject: Record<(typeof projectNames)[number], string> = {
@@ -45,6 +47,7 @@ const testMatchByProject: Record<(typeof projectNames)[number], string> = {
   analytics: "**/*.analytics.spec.ts",
   visual: "**/*.visual.spec.ts",
   "visual-mobile": "**/*.visual.spec.ts",
+  cwv: "**/*.cwv.spec.ts",
 };
 
 const config: PlaywrightConfigWithNextcov = {
