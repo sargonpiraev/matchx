@@ -15,7 +15,6 @@ node_modules
 .husky/_
 .env
 .npmrc
-AGENTS.md
 **/*.tsbuildinfo
 .env.*
 !.env.example

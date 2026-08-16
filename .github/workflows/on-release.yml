@@ -11,5 +11,5 @@ permissions:
 
 jobs:
   release:
-    uses: sargonpiraev/ci/.github/workflows/on-release.yml@main
+    uses: sargonpiraev/shared/.github/workflows/on-release.yml@main
     secrets: inherit

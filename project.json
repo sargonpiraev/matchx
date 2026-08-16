@@ -119,6 +119,13 @@
       "options": {
         "cwd": "matchx"
       }
+    },
+    "test:alint": {
+      "cache": false,
+      "command": "npm run test:alint",
+      "options": {
+        "cwd": "matchx"
+      }
     }
   }
 }

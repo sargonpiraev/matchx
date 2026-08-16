@@ -36,17 +36,27 @@
     "test:spec": "npm run test:spec -w @matchx/docapp",
     "test:visual": "npm run test:visual -w @matchx/docapp",
     "test:cwv": "npm run test:cwv -w @matchx/docapp",
-    "test:format": "npm run test:codestyles"
+    "test:format": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "test:alint": "alint check"
   },
   "devDependencies": {
+    "@asamarts/alint": "^0.14.2",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@sargonpiraev/prettier-config": "^1.0.0",
+    "@sargonpiraev/tsconfig": "^1.0.0",
     "@semantic-release/github": "^12.0.6",
     "lefthook": "^2.1.9",
-    "prettier": "^3.5.3",
+    "prettier": "^3.9.6",
     "semantic-release": "^25.0.8",
     "turbo": "^2.9.18",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "@sargonpiraev/eslint-config": "^1.4.0",
+    "eslint": "^9.26.0",
+    "eslint-plugin-json-schema-validator": "^6.3.1"
   },
-  "$schema": "../schema/project__package.json"
+  "$schema": "../schema/project__package.json",
+  "allowScripts": {
+    "@asamarts/alint@0.14.2": true
+  }
 }
