@@ -56,8 +56,11 @@
     "turbo": "^2.9.18",
     "typescript": "^5.8.2"
   },
-  "$schema": "../schema/project__package.json",
+  "$schema": "./node_modules/@sargonpiraev/eslint-config/build/schemas/project__package.json",
   "allowScripts": {
     "@asamarts/alint@0.14.2": true
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

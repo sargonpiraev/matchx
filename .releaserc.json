@@ -3,7 +3,13 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/npm", { "pkgRoot": "packages/matchx" }],
+    [
+      "@semantic-release/npm",
+      {
+        "pkgRoot": "packages/matchx"
+      }
+    ],
     "@semantic-release/github"
-  ]
+  ],
+  "$schema": "./node_modules/@sargonpiraev/eslint-config/build/schemas/project__releaserc.json"
 }
