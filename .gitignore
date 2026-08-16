@@ -25,3 +25,7 @@ node_modules/
 .DS_Store
 test-results/
 **/.next/
+
+# Lefthook personal overrides (optional; never commit)
+lefthook-local.yml
+lefthook-local.yaml
