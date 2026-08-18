@@ -3,17 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
     "build": "fumadocs-mdx && next build",
+    "dev": "next dev --port 3001",
     "start": "next start --port 3001",
-    "test:type": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "test:analytics": "playwright test --project=analytics",
+    "test:cwv": "playwright test --project=cwv",
     "test:functional": "playwright test --project=functional --project=functional-mobile",
     "test:seo": "playwright test --project=seo",
-    "test:analytics": "playwright test --project=analytics",
-    "test:visual": "playwright test --project=visual --project=visual-mobile",
-    "test:cwv": "playwright test --project=cwv",
     "test:spec": "playwright test --project=functional --project=functional-mobile --project=seo --project=analytics",
-    "test:spec:cov": "E2E_COVERAGE=true npm run test:spec"
+    "test:spec:cov": "E2E_COVERAGE=true npm run test:spec",
+    "test:type": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "test:visual": "playwright test --project=visual --project=visual-mobile"
   },
   "dependencies": {
     "@sargonpiraev/matchx": "*",
@@ -35,6 +35,6 @@
     "@types/react-dom": "19.2.4",
     "nextcov": "^1.5.1",
     "tailwindcss": "^4.1.7",
-    "typescript": "^5.8.2"
+    "typescript": "5.9.2"
   }
 }
