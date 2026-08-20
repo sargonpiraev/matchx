@@ -126,6 +126,13 @@
       "options": {
         "cwd": "matchx"
       }
+    },
+    "test:pulumi": {
+      "cache": false,
+      "command": "npm run test:pulumi",
+      "options": {
+        "cwd": "matchx"
+      }
     }
   }
 }
