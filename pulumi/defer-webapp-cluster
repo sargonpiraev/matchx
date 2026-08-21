@@ -1,0 +1,2 @@
+Parked: apps/docapp has no live public URL / GSC property yet (not deployed to GitHub Pages).
+Delete this file and construct Webapp in index.ts when docs have a real gscSiteUrl.
