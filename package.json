@@ -13,6 +13,8 @@
     "dev": "turbo run dev",
     "lint": "npm run test:codestyles",
     "prepare": "lefthook install",
+    "pulumi:preview": "npm --prefix pulumi run preview",
+    "pulumi:up": "npm --prefix pulumi run up",
     "test": "npm run test:unit",
     "test:alint": "alint check",
     "test:analytics": "npm run test:analytics -w @matchx/docapp",
@@ -27,7 +29,7 @@
     "test:type": "turbo run test:type",
     "test:unit": "turbo run test:unit",
     "test:visual": "npm run test:visual -w @matchx/docapp",
-    "test:pulumi": "node -e \"console.log('noop test:pulumi'); process.exit(0)\""
+    "test:pulumi": "npm ci --prefix pulumi && npm --prefix pulumi run test:pulumi"
   },
   "overrides": {
     "@semantic-release/npm": {
