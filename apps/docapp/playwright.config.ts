@@ -9,16 +9,6 @@ const port = Number(process.env.MATCHX_DOCS_PW_PORT ?? "3001");
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? `http://localhost:${port}`;
 const withCoverage = process.env.E2E_COVERAGE === "true";
 
-const projectNames = [
-  "functional",
-  "functional-mobile",
-  "seo",
-  "analytics",
-  "visual",
-  "visual-mobile",
-  "cwv",
-] as const;
-
 export const nextcov: NextcovConfig = {
   cdpPort: 9232,
   buildDir: ".next",
@@ -28,26 +18,6 @@ export const nextcov: NextcovConfig = {
   exclude: ["**/*.test.ts", "**/*.spec.ts", "e2e/**"],
   reporters: ["html", "json", "text-summary"],
   log: false,
-};
-
-const projectDevices: Record<(typeof projectNames)[number], (typeof devices)[string]> = {
-  functional: devices["Desktop Chrome"],
-  "functional-mobile": devices["Pixel 5"],
-  seo: devices["Desktop Chrome"],
-  analytics: devices["Desktop Chrome"],
-  visual: devices["Desktop Chrome"],
-  "visual-mobile": devices["Pixel 5"],
-  cwv: devices["Desktop Chrome"],
-};
-
-const testMatchByProject: Record<(typeof projectNames)[number], string> = {
-  functional: "**/*.functional.spec.ts",
-  "functional-mobile": "**/*.functional.spec.ts",
-  seo: "**/*.seo.spec.ts",
-  analytics: "**/*.analytics.spec.ts",
-  visual: "**/*.visual.spec.ts",
-  "visual-mobile": "**/*.visual.spec.ts",
-  cwv: "**/*.cwv.spec.ts",
 };
 
 const config: PlaywrightConfigWithNextcov = {
@@ -60,11 +30,43 @@ const config: PlaywrightConfigWithNextcov = {
   use: {
     baseURL,
   },
-  projects: projectNames.map((name) => ({
-    name,
-    testMatch: testMatchByProject[name],
-    use: { ...projectDevices[name] },
-  })),
+  projects: [
+    {
+      name: "functional",
+      testMatch: "**/*.functional.spec.ts",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "functional-mobile",
+      testMatch: "**/*.functional.spec.ts",
+      use: { ...devices["Pixel 5"] },
+    },
+    {
+      name: "seo",
+      testMatch: "**/*.seo.spec.ts",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "analytics",
+      testMatch: "**/*.analytics.spec.ts",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "visual",
+      testMatch: "**/*.visual.spec.ts",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "visual-mobile",
+      testMatch: "**/*.visual.spec.ts",
+      use: { ...devices["Pixel 5"] },
+    },
+    {
+      name: "cwv",
+      testMatch: "**/*.cwv.spec.ts",
+      use: { ...devices["Desktop Chrome"] },
+    },
+  ],
   webServer: {
     command: `npx next dev --port ${port}`,
     url: baseURL,

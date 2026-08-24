@@ -120,9 +120,16 @@
         "cwd": "matchx"
       }
     },
-    "test:alint": {
+    "test:fslint": {
       "cache": false,
-      "command": "npm run test:alint",
+      "command": "npm run test:fslint",
+      "options": {
+        "cwd": "matchx"
+      }
+    },
+    "test:configlint": {
+      "cache": false,
+      "command": "npm run test:configlint",
       "options": {
         "cwd": "matchx"
       }
