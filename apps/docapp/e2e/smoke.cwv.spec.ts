@@ -3,7 +3,7 @@ import {
   CWV_BUDGETS,
   enableCpuThrottle4x,
   installCwvCollectors,
-  readCwvMetrics,
+  waitForInpSample,
 } from "./lib/cwv";
 
 test("docs home INP under CDP CPU 4x", async ({ page }) => {
@@ -13,11 +13,11 @@ test("docs home INP under CDP CPU 4x", async ({ page }) => {
   await page.goto("/docs");
   await expect(page.locator("body")).toBeVisible();
 
-  await page.locator("body").click({ position: { x: 24, y: 24 } });
-  await page.keyboard.press("Tab");
-  await page.locator("body").click({ position: { x: 40, y: 40 } });
+  const docsLink = page.getByRole("link").nth(1);
+  await docsLink.click({ delay: 200 });
+  await page.getByRole("heading").first().click({ delay: 200 });
 
-  const metrics = await readCwvMetrics(page);
+  const metrics = await waitForInpSample(page);
   expect(metrics.inp, "expected an INP sample from interactions").not.toBeNull();
   expect(metrics.inp!).toBeLessThanOrEqual(CWV_BUDGETS.inpMs);
   expect(metrics.cls).toBeLessThanOrEqual(CWV_BUDGETS.cls);
