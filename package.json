@@ -29,7 +29,8 @@
     "test:spec": "npm run test:spec -w @matchx/docapp",
     "test:type": "turbo run test:type",
     "test:unit": "turbo run test:unit",
-    "test:visual": "npm run test:visual -w @matchx/docapp",
+    "test:visual": "bash scripts/pw-visual-docker.sh",
+    "test:visual:update": "bash scripts/pw-visual-docker.sh --update-snapshots",
     "test:pulumi": "npm ci --prefix pulumi && npm --prefix pulumi run test:pulumi"
   },
   "overrides": {
