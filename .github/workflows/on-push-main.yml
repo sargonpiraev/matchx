@@ -9,3 +9,79 @@ jobs:
   ci:
     uses: sargonpiraev/shared/.github/workflows/on-push-main.yml@main
     secrets: inherit
+
+  playwright-image:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.image.outputs.image }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: image
+        run: |
+          set -euo pipefail
+          IMAGE=$(node -e '
+            const lock = require("./package-lock.json");
+            const key = Object.keys(lock.packages).find((k) =>
+              k.endsWith("node_modules/@playwright/test"),
+            );
+            if (!key) {
+              throw new Error("missing @playwright/test in package-lock.json");
+            }
+            process.stdout.write(
+              "mcr.microsoft.com/playwright:v" +
+                lock.packages[key].version +
+                "-jammy",
+            );
+          ')
+          echo "image=${IMAGE}" >> "$GITHUB_OUTPUT"
+
+  test-spec:
+    needs: playwright-image
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.playwright-image.outputs.image }}
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: sargonpiraev/shared/.github/actions/setup-node-npm-ci@main
+
+      - name: Playwright spec
+        env:
+          CI: true
+          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+        run: npm run test:spec
+
+  test-visual:
+    needs: playwright-image
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.playwright-image.outputs.image }}
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: sargonpiraev/shared/.github/actions/setup-node-npm-ci@main
+
+      - name: Visual Playwright
+        env:
+          CI: true
+          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+        run: npm run test:visual
+
+  test-cwv:
+    needs: playwright-image
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ needs.playwright-image.outputs.image }}
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: sargonpiraev/shared/.github/actions/setup-node-npm-ci@main
+
+      - name: Lab CWV
+        env:
+          CI: true
+          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
+        run: npm run test:cwv
