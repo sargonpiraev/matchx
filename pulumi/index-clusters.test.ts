@@ -30,7 +30,11 @@ describe('apps/*/pulumi.ts app-type clusters', () => {
         /\bnew\s+Webapp\s*\(/,
         'apps/webapp (or apps/docapp) requires new Webapp(...) in apps/webapp/pulumi.ts'
       )
-      assert.doesNotMatch(indexSrc, /\bnew\s+Webapp\s*\(/, 'new Webapp(...) must not live in pulumi/index.ts')
+      assert.doesNotMatch(
+        indexSrc,
+        /\bnew\s+Webapp\s*\(/,
+        'new Webapp(...) must not live in pulumi/index.ts'
+      )
     }
     if (repoHasApp('extapp')) {
       assert.match(
@@ -38,7 +42,11 @@ describe('apps/*/pulumi.ts app-type clusters', () => {
         /\bnew\s+Extapp\s*\(/,
         'apps/extapp requires new Extapp(...) in apps/extapp/pulumi.ts'
       )
-      assert.doesNotMatch(indexSrc, /\bnew\s+Extapp\s*\(/, 'new Extapp(...) must not live in pulumi/index.ts')
+      assert.doesNotMatch(
+        indexSrc,
+        /\bnew\s+Extapp\s*\(/,
+        'new Extapp(...) must not live in pulumi/index.ts'
+      )
     }
     if (repoHasApp('mobapp')) {
       assert.match(
@@ -46,7 +54,11 @@ describe('apps/*/pulumi.ts app-type clusters', () => {
         /\bnew\s+Mobapp\s*\(/,
         'apps/mobapp requires new Mobapp(...) in apps/mobapp/pulumi.ts'
       )
-      assert.doesNotMatch(indexSrc, /\bnew\s+Mobapp\s*\(/, 'new Mobapp(...) must not live in pulumi/index.ts')
+      assert.doesNotMatch(
+        indexSrc,
+        /\bnew\s+Mobapp\s*\(/,
+        'new Mobapp(...) must not live in pulumi/index.ts'
+      )
     }
   })
 })

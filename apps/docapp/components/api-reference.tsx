@@ -12,28 +12,16 @@ export function MatchingEngineTable() {
 }
 
 export function TradeTable() {
-  return (
-    <AutoTypeTable path={packageSrc('types.ts')} name="Trade" generator={typeGenerator} />
-  )
+  return <AutoTypeTable path={packageSrc('types.ts')} name="Trade" generator={typeGenerator} />
 }
 
 export function LimitOrderTable() {
-  return (
-    <AutoTypeTable
-      path={packageSrc('types.ts')}
-      name="LimitOrder"
-      generator={typeGenerator}
-    />
-  )
+  return <AutoTypeTable path={packageSrc('types.ts')} name="LimitOrder" generator={typeGenerator} />
 }
 
 export function MarketOrderTable() {
   return (
-    <AutoTypeTable
-      path={packageSrc('types.ts')}
-      name="MarketOrder"
-      generator={typeGenerator}
-    />
+    <AutoTypeTable path={packageSrc('types.ts')} name="MarketOrder" generator={typeGenerator} />
   )
 }
 

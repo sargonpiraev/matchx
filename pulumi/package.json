@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "preview": "pulumi preview",
-    "up": "pulumi up --yes",
     "destroy": "pulumi destroy --yes",
-    "test:pulumi": "tsx --test index-clusters.test.ts"
+    "preview": "pulumi preview",
+    "test:pulumi": "tsx --test index-clusters.test.ts",
+    "up": "pulumi up --yes"
   },
   "dependencies": {
     "@pulumi/pulumi": "^3.0.0"

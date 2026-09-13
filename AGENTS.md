@@ -6,10 +6,10 @@ Turborepo: library in `packages/matchx`; Fumadocs docs in `apps/docapp` (not par
 
 ## Workspaces
 
-| Path | npm name | Role |
-| --- | --- | --- |
+| Path              | npm name               | Role                      |
+| ----------------- | ---------------------- | ------------------------- |
 | `packages/matchx` | `@sargonpiraev/matchx` | published matching engine |
-| `apps/docapp` | `@matchx/docapp` | Fumadocs + MDX docs site |
+| `apps/docapp`     | `@matchx/docapp`       | Fumadocs + MDX docs site  |
 
 ## Commands
 

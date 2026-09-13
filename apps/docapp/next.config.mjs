@@ -4,14 +4,17 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const reactProduction = path.resolve(__dirname, '../../node_modules/react/cjs/react.production.js')
-const reactDevelopment = path.resolve(__dirname, '../../node_modules/react/cjs/react.development.js')
+const reactDevelopment = path.resolve(
+  __dirname,
+  '../../node_modules/react/cjs/react.development.js'
+)
 const reactDomProduction = path.resolve(
   __dirname,
-  '../../node_modules/react-dom/cjs/react-dom.production.js',
+  '../../node_modules/react-dom/cjs/react-dom.production.js'
 )
 const reactDomDevelopment = path.resolve(
   __dirname,
-  '../../node_modules/react-dom/cjs/react-dom.development.js',
+  '../../node_modules/react-dom/cjs/react-dom.development.js'
 )
 
 /** @type {import('next').NextConfig} */

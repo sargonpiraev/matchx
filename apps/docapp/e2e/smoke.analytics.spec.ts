@@ -1,20 +1,19 @@
-import { test, expect } from "./fixtures";
-import { mockAnalytics } from "./lib/analytics";
+import { test, expect } from './fixtures'
+import { mockAnalytics } from './lib/analytics'
 
-test.describe("smoke.analytics.spec.ts", { tag: '@analytics' }, () => {
-test("analytics collect endpoint can be mocked", async ({ page }) => {
-  const analytics = await mockAnalytics(page);
+test.describe('smoke.analytics.spec.ts', { tag: '@analytics' }, () => {
+  test('analytics collect endpoint can be mocked', async ({ page }) => {
+    const analytics = await mockAnalytics(page)
 
-  await page.goto("/docs");
-  await expect(page.locator("body")).toBeVisible();
+    await page.goto('/docs')
+    await expect(page.locator('body')).toBeVisible()
 
-  await page.evaluate(() => {
-    void fetch("https://www.google-analytics.com/g/collect?v=2&tid=G-TEST", {
-      mode: "no-cors",
-    });
-  });
+    await page.evaluate(() => {
+      void fetch('https://www.google-analytics.com/g/collect?v=2&tid=G-TEST', {
+        mode: 'no-cors',
+      })
+    })
 
-  await expect.poll(() => analytics.hits.length).toBeGreaterThan(0);
-});
-
-});
+    await expect.poll(() => analytics.hits.length).toBeGreaterThan(0)
+  })
+})

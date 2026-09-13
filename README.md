@@ -4,10 +4,10 @@ Turborepo monorepo for **matchx** — an in-memory order matching engine for fin
 
 ## Packages
 
-| Path | npm | Description |
-|------|-----|-------------|
-| [`packages/matchx`](packages/matchx) | [`@sargonpiraev/matchx`](https://www.npmjs.com/package/@sargonpiraev/matchx) | Core matching engine library |
-| [`apps/docapp`](apps/docapp) | — | Fumadocs documentation site (MDX + auto API from source) |
+| Path                                 | npm                                                                          | Description                                              |
+| ------------------------------------ | ---------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [`packages/matchx`](packages/matchx) | [`@sargonpiraev/matchx`](https://www.npmjs.com/package/@sargonpiraev/matchx) | Core matching engine library                             |
+| [`apps/docapp`](apps/docapp)         | —                                                                            | Fumadocs documentation site (MDX + auto API from source) |
 
 ## Quick start
 
@@ -20,13 +20,13 @@ npm run dev
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run build` | Build all packages and apps |
-| `npm run dev` | Docs site on http://localhost:3001 (Fumadocs + MDX) |
-| `npm run test:unit` | Run unit tests |
-| `npm run test:type` | Typecheck all workspaces |
-| `npm run test:codestyles` | Prettier check |
+| Command                   | Description                                         |
+| ------------------------- | --------------------------------------------------- |
+| `npm run build`           | Build all packages and apps                         |
+| `npm run dev`             | Docs site on http://localhost:3001 (Fumadocs + MDX) |
+| `npm run test:unit`       | Run unit tests                                      |
+| `npm run test:type`       | Typecheck all workspaces                            |
+| `npm run test:codestyles` | Prettier check                                      |
 
 ## Install the library
 
