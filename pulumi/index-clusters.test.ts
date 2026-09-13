@@ -16,33 +16,37 @@ function repoHasApp(appType: string): boolean {
   return fs.existsSync(path.join(repoRoot, 'apps', appType))
 }
 
-describe('pulumi/index.ts app-type clusters', () => {
-  it('instantiates Webapp/Extapp/Mobapp when the matching apps/ dir exists', () => {
-    const src = stripTsComments(indexSource)
-    const deferWebapp = (() => {
-      const marker = path.join(__dirname, 'defer-webapp-cluster')
-      return fs.existsSync(marker) && fs.readFileSync(marker, 'utf8').trim().length > 0
-    })()
-    if ((repoHasApp('webapp') || repoHasApp('docapp')) && !deferWebapp) {
+function readAppPulumi(appType: string): string {
+  const file = path.join(repoRoot, 'apps', appType, 'pulumi.ts')
+  return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : ''
+}
+
+describe('apps/*/pulumi.ts app-type clusters', () => {
+  it('instantiates Webapp/Extapp/Mobapp in apps/<type>/pulumi.ts when the matching apps/ dir exists', () => {
+    const indexSrc = stripTsComments(indexSource)
+    if (repoHasApp('webapp') || repoHasApp('docapp')) {
       assert.match(
-        src,
-        /\b(?:createWebappProductAnalytics|new\s+Webapp)\s*\(/,
-        'apps/webapp (or apps/docapp) requires createWebappProductAnalytics(...) or new Webapp(...) in pulumi/index.ts'
+        stripTsComments(readAppPulumi('webapp')),
+        /\bnew\s+Webapp\s*\(/,
+        'apps/webapp (or apps/docapp) requires new Webapp(...) in apps/webapp/pulumi.ts'
       )
+      assert.doesNotMatch(indexSrc, /\bnew\s+Webapp\s*\(/, 'new Webapp(...) must not live in pulumi/index.ts')
     }
     if (repoHasApp('extapp')) {
       assert.match(
-        src,
-        /\b(?:createExtappProductAnalytics|new\s+Extapp)\s*\(/,
-        'apps/extapp requires createExtappProductAnalytics(...) or new Extapp(...) in pulumi/index.ts'
+        stripTsComments(readAppPulumi('extapp')),
+        /\bnew\s+Extapp\s*\(/,
+        'apps/extapp requires new Extapp(...) in apps/extapp/pulumi.ts'
       )
+      assert.doesNotMatch(indexSrc, /\bnew\s+Extapp\s*\(/, 'new Extapp(...) must not live in pulumi/index.ts')
     }
     if (repoHasApp('mobapp')) {
       assert.match(
-        src,
-        /\b(?:createMobappProductAnalytics|new\s+Mobapp)\s*\(/,
-        'apps/mobapp requires createMobappProductAnalytics(...) or new Mobapp(...) in pulumi/index.ts'
+        stripTsComments(readAppPulumi('mobapp')),
+        /\bnew\s+Mobapp\s*\(/,
+        'apps/mobapp requires new Mobapp(...) in apps/mobapp/pulumi.ts'
       )
+      assert.doesNotMatch(indexSrc, /\bnew\s+Mobapp\s*\(/, 'new Mobapp(...) must not live in pulumi/index.ts')
     }
   })
 })

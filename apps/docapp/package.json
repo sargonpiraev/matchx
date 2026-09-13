@@ -6,14 +6,14 @@
     "build": "fumadocs-mdx && next build",
     "dev": "next dev --port 3001",
     "start": "next start --port 3001",
-    "test:analytics": "playwright test --project=analytics",
-    "test:cwv": "playwright test --project=cwv",
-    "test:functional": "playwright test --project=functional --project=functional-mobile",
-    "test:seo": "playwright test --project=seo",
-    "test:spec": "playwright test --project=functional --project=functional-mobile --project=seo --project=analytics",
+    "test:spec": "playwright test --grep '@feat|@seokit|@analytics'",
     "test:spec:cov": "E2E_COVERAGE=true npm run test:spec",
     "test:type": "fumadocs-mdx && next typegen && tsc --noEmit",
-    "test:visual": "playwright test --project=visual --project=visual-mobile"
+    "test:spec:feat": "playwright test --grep @feat",
+    "test:spec:seokit": "playwright test --grep @seokit",
+    "test:spec:perf": "playwright test --grep @perf",
+    "test:spec:visual": "playwright test --grep @visual",
+    "test:spec:analytics": "playwright test --grep @analytics"
   },
   "dependencies": {
     "@sargonpiraev/matchx": "*",

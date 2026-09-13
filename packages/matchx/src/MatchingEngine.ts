@@ -7,7 +7,7 @@ import {
   OrderType,
   Trade,
 } from './types'
-import { validateOrReject, validateSync } from 'class-validator'
+import { validateSync } from 'class-validator'
 import { plainToInstance } from 'class-transformer'
 import { OrderDto } from './order.dto'
 import { OrderValidationError, TradingDisabledError } from './errors'

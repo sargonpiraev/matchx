@@ -40,39 +40,12 @@ const config: PlaywrightConfigWithNextcov = {
   },
   projects: [
     {
-      name: "functional",
-      testMatch: "**/*.functional.spec.ts",
+      name: "desktop",
       use: { ...devices["Desktop Chrome"] },
     },
     {
-      name: "functional-mobile",
-      testMatch: "**/*.functional.spec.ts",
+      name: "mobile",
       use: { ...devices["Pixel 5"] },
-    },
-    {
-      name: "seo",
-      testMatch: "**/*.seo.spec.ts",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "analytics",
-      testMatch: "**/*.analytics.spec.ts",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "visual",
-      testMatch: "**/*.visual.spec.ts",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "visual-mobile",
-      testMatch: "**/*.visual.spec.ts",
-      use: { ...devices["Pixel 5"] },
-    },
-    {
-      name: "cwv",
-      testMatch: "**/*.cwv.spec.ts",
-      use: { ...devices["Desktop Chrome"] },
     },
   ],
   webServer: {

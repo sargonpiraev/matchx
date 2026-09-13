@@ -1,8 +1,9 @@
 import { test, expect } from "./fixtures";
 
+test.describe("smoke.visual.spec.ts", { tag: '@visual' }, () => {
 test.describe("visual smoke", () => {
   test("docs desktop screenshot", async ({ page }, testInfo) => {
-    test.skip(testInfo.project.name !== "visual", "desktop snapshots only");
+    test.skip(testInfo.project.name !== "desktop", "desktop snapshots only");
 
     await page.goto("/docs");
     await expect(page.locator("body")).toBeVisible();
@@ -12,7 +13,7 @@ test.describe("visual smoke", () => {
   });
 
   test("docs mobile screenshot", async ({ page }, testInfo) => {
-    test.skip(testInfo.project.name !== "visual-mobile", "mobile snapshots only");
+    test.skip(testInfo.project.name !== "mobile", "mobile snapshots only");
 
     await page.goto("/docs");
     await expect(page.locator("body")).toBeVisible();
@@ -20,4 +21,6 @@ test.describe("visual smoke", () => {
       fullPage: true,
     });
   });
+});
+
 });

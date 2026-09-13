@@ -895,7 +895,7 @@ describe('Order Validation Tests', () => {
 
   test('should throw validation error for missing id', () => {
     const engine = new MatchingEngine(MatchingAlgorithm.PRICE_TIME)
-    const invalidOrder = { ...validOrderBase, id: undefined as any } as Order
+    const invalidOrder = { ...validOrderBase, id: undefined as unknown as string } as Order
 
     assert.throws(() => engine.match(invalidOrder), {
       name: 'OrderValidationError',
@@ -915,7 +915,7 @@ describe('Order Validation Tests', () => {
 
   test('should throw validation error for invalid side', () => {
     const engine = new MatchingEngine(MatchingAlgorithm.PRICE_TIME)
-    const invalidOrder = { ...validOrderBase, side: 'INVALID_SIDE' as any }
+    const invalidOrder = { ...validOrderBase, side: 'INVALID_SIDE' as unknown as Order['side'] }
 
     assert.throws(() => engine.match(invalidOrder as Order), {
       name: 'OrderValidationError',
@@ -938,7 +938,7 @@ describe('Order Validation Tests', () => {
     const invalidOrder: LimitOrder = {
       ...validOrderBase,
       type: OrderType.LIMIT,
-      price: undefined as any,
+      price: undefined as unknown as number,
     }
 
     assert.throws(() => engine.match(invalidOrder as Order), {
@@ -962,7 +962,7 @@ describe('Order Validation Tests', () => {
     const validMarketOrder: MarketOrder = {
       ...validOrderBase,
       type: OrderType.MARKET,
-      price: undefined as any,
+      price: undefined as unknown as number,
     }
 
     assert.doesNotThrow(() => engine.match(validMarketOrder))

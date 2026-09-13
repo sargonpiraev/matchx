@@ -1,6 +1,7 @@
 import { test, expect } from "./fixtures";
 import { mockAnalytics } from "./lib/analytics";
 
+test.describe("smoke.analytics.spec.ts", { tag: '@analytics' }, () => {
 test("analytics collect endpoint can be mocked", async ({ page }) => {
   const analytics = await mockAnalytics(page);
 
@@ -14,4 +15,6 @@ test("analytics collect endpoint can be mocked", async ({ page }) => {
   });
 
   await expect.poll(() => analytics.hits.length).toBeGreaterThan(0);
+});
+
 });

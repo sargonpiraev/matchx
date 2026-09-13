@@ -23,7 +23,7 @@ npm run test:codestyles       # Prettier check
 npm run test:alint            # FS structure / presence
 ```
 
-Playwright lanes for docapp: `test:functional`, `test:seo`, `test:analytics`, `test:spec`, `test:visual`, `test:cwv`.
+Playwright lanes for docapp: `test:spec:feat`, `test:spec:seokit`, `test:spec:analytics`, `test:spec`, `test:spec:visual`, `test:spec:perf`.
 
 ## Stack
 

@@ -55,7 +55,7 @@ jobs:
           PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
         run: npm run test:spec
 
-  test-visual:
+  test-spec-visual:
     needs: playwright-image
     runs-on: ubuntu-latest
     container:
@@ -73,9 +73,9 @@ jobs:
         env:
           CI: true
           PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
-        run: npm run test:visual
+        run: npm run test:spec:visual
 
-  test-cwv:
+  test-spec-perf:
     needs: playwright-image
     runs-on: ubuntu-latest
     container:
@@ -93,4 +93,4 @@ jobs:
         env:
           CI: true
           PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
-        run: npm run test:cwv
+        run: npm run test:spec:perf
