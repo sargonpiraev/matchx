@@ -25,7 +25,7 @@
     "test:eslint": "eslint .",
     "test:format": "prettier --check \"**/*.{mjs,cjs,js,ts,tsx,md,json,yaml,yml}\"",
     "test:fslint": "alint check -c .alint.fslint.yaml",
-    "test:pulumi": "npm ci --prefix pulumi && npm --prefix pulumi run test:pulumi",
+    "test:pulumi": "npm ci --prefix pulumi --ignore-scripts && npm --prefix pulumi run test:pulumi",
     "test:spec": "npm run test:spec -w @matchx/docapp",
     "test:spec:analytics": "npm run test:spec:analytics -w @matchx/docapp",
     "test:spec:feat": "npm run test:spec:feat -w @matchx/docapp",
