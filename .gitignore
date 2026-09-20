@@ -14,6 +14,7 @@ node_modules
 **/playwright/.cache/
 .husky/_
 .env
+!.env.example
 **/*.tsbuildinfo
 .env.*
 !.env.example
