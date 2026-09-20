@@ -1,7 +1,7 @@
 import { test, expect } from './fixtures'
 import { CWV_BUDGETS, enableCpuThrottle4x, installCwvCollectors, waitForInpSample } from './lib/cwv'
 
-test('docs home INP under CDP CPU 4x', async ({ page }) => {
+test('docs home INP under CDP CPU 4x', { tag: '@perf' }, async ({ page }) => {
   await installCwvCollectors(page)
   await enableCpuThrottle4x(page)
 

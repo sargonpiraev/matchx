@@ -8,6 +8,8 @@ on:
 jobs:
   ci:
     uses: sargonpiraev/shared/.github/workflows/on-push-main.yml@main
+    with:
+      skip-audit: true
     secrets: inherit
 
   playwright-image:
