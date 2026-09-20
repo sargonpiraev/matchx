@@ -25,10 +25,11 @@ describe('apps/*/pulumi.ts app-type clusters', () => {
   it('instantiates Webapp/Extapp/Mobapp in apps/<type>/pulumi.ts when the matching apps/ dir exists', () => {
     const indexSrc = stripTsComments(indexSource)
     if (repoHasApp('webapp') || repoHasApp('docapp')) {
+      const clusterApp = repoHasApp('webapp') ? 'webapp' : 'docapp'
       assert.match(
-        stripTsComments(readAppPulumi('webapp')),
+        stripTsComments(readAppPulumi(clusterApp)),
         /\bnew\s+Webapp\s*\(/,
-        'apps/webapp (or apps/docapp) requires new Webapp(...) in apps/webapp/pulumi.ts'
+        `apps/${clusterApp} requires new Webapp(...) in apps/${clusterApp}/pulumi.ts`
       )
       assert.doesNotMatch(
         indexSrc,

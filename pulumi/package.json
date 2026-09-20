@@ -10,7 +10,8 @@
     "up": "pulumi up --yes"
   },
   "dependencies": {
-    "@pulumi/pulumi": "^3.0.0"
+    "@pulumi/pulumi": "^3.0.0",
+    "@sargonpiraev/pulumi-apps": "1.10.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
